@@ -6,6 +6,8 @@ shared postman collection that stays aligned and up-to-date with the latest grap
 This Collection automatically runs login and sets the Authorization header for all requests.
 
 ### Generate Collection
+https://www.loom.com/share/568013eb6be14cab862f3449a853d421?sid=5b1bbc5f-2e54-4291-b7cb-cc01551e6a26
+
 ```shell
 $ ./generate.sh
 ```

@@ -16,7 +16,7 @@
         "type": "text/javascript",
         "exec": [
           "pm.sendRequest({",
-          "    url: pm.variables.get('baseUrl') + '/graphql,",
+          "    url: pm.variables.get('baseUrl') + '/graphql',",
           "    method: 'POST',",
           "    header: {",
           "        'Content-Type': 'application/json'",

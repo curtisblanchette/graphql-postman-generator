@@ -1,0 +1,40 @@
+{
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{auth}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "pm.sendRequest({",
+          "    url: pm.variables.get('baseUrl') + '/graphql,",
+          "    method: 'POST',",
+          "    header: {",
+          "        'Content-Type': 'application/json'",
+          "    },",
+          "    body: JSON.stringify({query: 'mutation { login(input: {email: \"' + pm.variables.get('email') +'\", password: \"'+pm.variables.get('password')+'\"}) { idToken }}'})",
+          "}, async (err, res) => {   ",
+          "    ",
+          "    if(err || res.code === 400) {",
+          "        console.log(res);",
+          "        console.info('error', err || res.status);",
+          "        throw Error(\"Bad Request\")",
+          "    }",
+          "",
+          "    const authToken = await res.json().data.login.idToken;",
+          "    pm.variables.set('auth', authToken);",
+          "});"
+        ]
+      }
+    }
+  ]
+}

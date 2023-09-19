@@ -1,4 +1,4 @@
-# [Core] Postman Collection
+# GraphQL Postman Collection Generator
 
 The purpose of this is to provide engineering with a consistent method of regenerating a
 shared postman collection that stays aligned and up-to-date with the latest graphql.schema.
